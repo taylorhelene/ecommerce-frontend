@@ -40,11 +40,11 @@ class AddProduct extends Component {
         () => this.setState(initState)
       );
       this.setState({
-        flash: { status: "is-success", msg: "Product created successfully" }
+        flash: { status: "alert-success", msg: "Product created successfully" }
       });
     } else {
       this.setState({
-        flash: { status: "is-danger", msg: "Please enter name and price" }
+        flash: { status: "alert-danger", msg: "Please enter name and price" }
       });
     }
   };
@@ -59,86 +59,99 @@ class AddProduct extends Component {
       <Navigate to="/" />
     ) : (
       <>
-        <div className="hero is-primary">
-          <div className="hero-body container">
-            <h4 className="title">Add Product</h4>
+        <div className="bg-primary text-white py-4">
+          <div className="container">
+            <h4 className="display-6">Add Product</h4>
           </div>
         </div>
-        <br />
-        <br />
-        <form onSubmit={this.save}>
-          <div className="columns is-mobile is-centered">
-            <div className="column is-one-third">
-              <div className="field">
-                <label className="label">Product Name: </label>
-                <input
-                  className="input"
-                  type="text"
-                  name="name"
-                  value={name}
-                  onChange={this.handleChange}
-                  required
-                />
-              </div>
-              <div className="field">
-                <label className="label">Price: </label>
-                <input
-                  className="input"
-                  type="number"
-                  name="price"
-                  value={price}
-                  onChange={this.handleChange}
-                  required
-                />
-              </div>
-              <div className="field">
-                <label className="label">Available in Stock: </label>
-                <input
-                  className="input"
-                  type="number"
-                  name="stock"
-                  value={stock}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="field">
-                <label className="label">Short Description: </label>
-                <input
-                  className="input"
-                  type="text"
-                  name="shortDesc"
-                  value={shortDesc}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="field">
-                <label className="label">Description: </label>
-                <textarea
-                  className="textarea"
-                  rows="2"
-                  style={{ resize: "none" }}
-                  name="description"
-                  value={description}
-                  onChange={this.handleChange}
-                />
-              </div>
-              {this.state.flash && (
-                <div className={`notification ${this.state.flash.status}`}>
-                  {this.state.flash.msg}
+        <div className="container my-5">
+          <form onSubmit={this.save}>
+            <div className="row justify-content-center">
+              <div className="col-md-4">
+                <div className="mb-3">
+                  <label htmlFor="nameInput" className="form-label">
+                    Product Name
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="nameInput"
+                    name="name"
+                    value={name}
+                    onChange={this.handleChange}
+                    required
+                  />
                 </div>
-              )}
-              <div className="field is-clearfix">
-                <button
-                  className="button is-primary is-outlined is-pulled-right"
-                  type="submit"
-                  onClick={this.save}
-                >
-                  Submit
-                </button>
+                <div className="mb-3">
+                  <label htmlFor="priceInput" className="form-label">
+                    Price
+                  </label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    id="priceInput"
+                    name="price"
+                    value={price}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="stockInput" className="form-label">
+                    Available in Stock
+                  </label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    id="stockInput"
+                    name="stock"
+                    value={stock}
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="shortDescInput" className="form-label">
+                    Short Description
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="shortDescInput"
+                    name="shortDesc"
+                    value={shortDesc}
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="descriptionInput" className="form-label">
+                    Description
+                  </label>
+                  <textarea
+                    className="form-control"
+                    id="descriptionInput"
+                    rows="2"
+                    name="description"
+                    value={description}
+                    onChange={this.handleChange}
+                  />
+                </div>
+                {this.state.flash && (
+                  <div className={`alert ${this.state.flash.status} mb-3`}>
+                    {this.state.flash.msg}
+                  </div>
+                )}
+                <div className="d-flex justify-content-end">
+                  <button
+                    className="btn btn-primary"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </>
     );
   }
