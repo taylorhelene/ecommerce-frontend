@@ -59,9 +59,9 @@ class AddProduct extends Component {
       <Navigate to="/" />
     ) : (
       <>
-        <div className="bg-primary text-white py-4">
-          <div className="container">
-            <h4 className="display-6">Add Product</h4>
+        <div className="container-fluid">
+          <div className="d-flex justify-content-center container">
+            <h4 className="title">Add Product</h4>
           </div>
         </div>
         <div className="container my-5">
